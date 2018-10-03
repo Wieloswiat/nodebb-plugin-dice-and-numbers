@@ -1,0 +1,41 @@
+{
+	"id": "nodebb-plugin-diceroller",
+	"library": "./library.js",
+	"hooks": [
+		{
+			"hook": "filter:composer.formatting",
+			"method": "composerFormatting",
+			"priority": 19
+		},
+		{
+			"hook": "filter:parse.post",
+			"method": "parsePost",
+			"priority": 19
+		},
+		{
+			"hook": "filter:topic.create",
+			"method": "generateNumbers"
+		},
+		{
+			"hook": "filter:post.create",
+			"method": "generateNumbers"
+		},
+		{
+			"hook": "filter:composer.build",
+			"method": "buildComposer",
+			"priority": 99
+		}
+	],
+	"staticDirs": {
+		"static": "./static",
+		"img": "./static/img"
+	},
+	"less": [
+		"static/style.less"
+	],
+	"scripts": [
+		"static/lib/main.js",
+		"static/lib/admin.js",
+		"static/lib/button.js"
+	]
+}

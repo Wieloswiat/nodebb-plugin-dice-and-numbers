@@ -1,0 +1,21 @@
+{
+  "name": "nodebb-plugin-dice-and-numbers",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/am1cable/nodebb-plugin-dice-and-numbers.git"
+  },
+  "keywords": [
+    "nodebb",
+    "dice",
+    "random"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "random-number": "0.0.9",
+    "roll": "^1.2.0"
+  },
+  "nbbpm": {
+    "compatibility": "^1.10.x"
+  }
+}
