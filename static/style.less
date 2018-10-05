@@ -1,13 +1,11 @@
-body {
-}
 .fa-dice::before{
     display: inline-flex;
     content: ' ';
-    background-image: url(plugins/nodebb-plugin-dice-and-numbers/img/dice-solid.svg);
-    background-repeat: no-repeat;
-    background-size: 12px 20px;
-    width: 12px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
+    background-color: #333;
+    -webkit-mask: url(plugins/nodebb-plugin-dice-and-numbers/img/dice-solid.svg) no-repeat 50% 50%;
+    mask: url(plugins/nodebb-plugin-dice-and-numbers/img/dice-solid.svg) no-repeat 50% 50%;
 }
 #diceroller-field {
     padding: 9px;

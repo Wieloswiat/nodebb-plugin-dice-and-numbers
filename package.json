@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-dice-and-numbers",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/am1cable/nodebb-plugin-dice-and-numbers.git"

@@ -34,8 +34,6 @@
 		"static/style.less"
 	],
 	"scripts": [
-		"static/lib/main.js",
-		"static/lib/admin.js",
-		"static/lib/button.js"
+		"static/lib/main.js"
 	]
 }
