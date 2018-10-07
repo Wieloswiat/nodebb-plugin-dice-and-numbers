@@ -16,10 +16,10 @@ module.exports.composerFormatting = composerFormatting;
 
 const parsePost = (data, callback) => {
     if (data.postData.randomNumber) {
-        data.postData.content = `${data.postData.content} <br> <div class="dice-results">Generating ${data.postData.randomNumber.amount} random number${data.postData.randomNumber.amount > 1 ? 's' : ''} from ${data.postData.randomNumber.min} to ${data.postData.randomNumber.max}:  [${data.postData.randomNumber.result}]</div> <div>Total:${data.postData.randomNumber.total}</div>`;
+        data.postData.content = `${data.postData.content} <br> <div class="dice-results"><div class="individual">Generating ${data.postData.randomNumber.amount} random number${data.postData.randomNumber.amount > 1 ? 's' : ''} from ${data.postData.randomNumber.min} to ${data.postData.randomNumber.max}:  [${data.postData.randomNumber.result}]</div> <div class="total">Total:${data.postData.randomNumber.total}</div></div>`;
     }
     if (data.postData.diceRoll) {
-        data.postData.content = `${data.postData.content} <br> <div class="random-results">Rolling ${data.postData.diceRoll.query} dice: [${data.postData.diceRoll.rolled}]</div> <div>Total:${data.postData.diceRoll.result}</div>`;
+        data.postData.content = `${data.postData.content} <br> <div class="random-results"><div class="individual">Rolling ${data.postData.diceRoll.query} dice: [${data.postData.diceRoll.rolled}]</div> <div class="total">Total:${data.postData.diceRoll.result}</div></div>`;
     }
     callback(null, data);
 };

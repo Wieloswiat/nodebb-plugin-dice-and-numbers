@@ -1,5 +1,5 @@
 {
-	"id": "nodebb-plugin-diceroller",
+	"id": "nodebb-plugin-dice-and-numbers",
 	"library": "./library.js",
 	"hooks": [
 		{
