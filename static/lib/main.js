@@ -1,5 +1,5 @@
 
-$(window).on('action:composer.loaded', function (ev, data) { 
+$(window).on('action:composer.loaded', function (ev, data) {
 	$('[data-format="diceroller"]').hide();
 	if (data.composerData.action === 'posts.reply' || data.composerData.action === 'topics.post') {
 		$('[data-format="diceroller"]').show();
@@ -13,7 +13,7 @@ $(window).on('action:composer.loaded', function (ev, data) {
 	</div>
 	<div id="dice">
 	   Amount: 
-	   <input class="dice-amount"  placeholder="1" name="Dice Amount">
+	   <input class="dice-amount"  type="number" placeholder="1" name="Dice Amount">
 	   <select class="dice-type">
 		  <option value="d4">d4</option>
 		  <option value="d6">d6</option>
@@ -25,11 +25,11 @@ $(window).on('action:composer.loaded', function (ev, data) {
 	   </select>
 	</div>
 	<div id="random">Amount:
-	   <input class="random-amount" placeholder="1" name="Random Amount">
+	   <input class="random-amount" type="number" placeholder="1" name="Random Amount">
 	   From:
-	   <input class="random-min" placeholder="1" name="Random Minimum">
+	   <input class="random-min" type="number" placeholder="1" name="Random Minimum">
 	   To:
-	   <input class="random-max" placeholder="100" name="Random Maximum">
+	   <input class="random-max" type="number" placeholder="100" name="Random Maximum">
 	</div>
  </div>`).insertBefore('.category-tag-row');
 	}
