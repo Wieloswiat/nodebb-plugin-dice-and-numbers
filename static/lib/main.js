@@ -13,7 +13,7 @@ $(window).on('action:composer.loaded', function (ev, data) {
 	</div>
 	<div id="dice">
 	   Amount: 
-	   <input class="dice-amount"  type="number" placeholder="1" name="Dice Amount">
+	   <input class="dice-amount"  type="number" min="1" step="1" placeholder="1" name="Dice Amount">
 	   <select class="dice-type">
 		  <option value="d4">d4</option>
 		  <option value="d6">d6</option>
@@ -25,11 +25,11 @@ $(window).on('action:composer.loaded', function (ev, data) {
 	   </select>
 	</div>
 	<div id="random">Amount:
-	   <input class="random-amount" type="number" placeholder="1" name="Random Amount">
+	   <input class="random-amount" type="number" min="1" step="1" placeholder="1" name="Random Amount">
 	   From:
-	   <input class="random-min" type="number" placeholder="1" name="Random Minimum">
+	   <input class="random-min" type="number" min="0" step="1" placeholder="1" name="Random Minimum">
 	   To:
-	   <input class="random-max" type="number" placeholder="100" name="Random Maximum">
+	   <input class="random-max" type="number" min="1" step="1" placeholder="100" name="Random Maximum">
 	</div>
  </div>`).insertBefore('.category-tag-row');
 	}
@@ -69,15 +69,21 @@ $(document).on('click', '[data-format="diceroller"]', function () {
 $(window).on('action:composer.submit', function (ev, data) {
 	const numberField = data.composerEl.find('#diceroller-field');
 	const type = numberField.find('#type select').val();
+	const validNumber = function (num, greaterThanZero = true) {
+		if (num && num.indexOf(".") == -1 && (greaterThanZero ? num > 0 : num >= 0)) {
+			return num;
+		}
+		return undefined;
+	};
 	if (type === 'roll-dice') {
-		const diceAmount = numberField.find('#dice .dice-amount').val() || numberField.find('#dice .dice-amount').attr('placeholder');
-		const diceRequest = diceAmount + numberField.find('#dice .dice-type').val()
+		const diceAmount = validNumber(numberField.find('#dice .dice-amount').val()) || numberField.find('#dice .dice-amount').attr('placeholder');
+		const diceRequest = diceAmount + numberField.find('#dice .dice-type').val();
 		data.composerData.diceRoll = diceRequest;
 	}
 	if (type === 'random-number') {
-		const randomAmount = numberField.find('#random .random-amount').val() || numberField.find('#random .random-amount').attr('placeholder');
-		const randomMin = numberField.find('#random .random-min').val() || numberField.find('#random .random-min').attr('placeholder');
-		const randomMax = numberField.find('#random .random-max').val() || numberField.find('#random .random-max').attr('placeholder');
+		const randomAmount = validNumber(numberField.find('#random .random-amount').val()) || numberField.find('#random .random-amount').attr('placeholder');
+		const randomMin = validNumber(numberField.find('#random .random-min').val(), false) || numberField.find('#random .random-min').attr('placeholder');
+		const randomMax = validNumber(numberField.find('#random .random-max').val()) || numberField.find('#random .random-max').attr('placeholder');
 		data.composerData.randomNumber = [randomAmount, randomMin, randomMax];
 	}
 });
