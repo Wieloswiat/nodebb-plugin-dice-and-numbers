@@ -19,7 +19,7 @@ const parsePost = (data, callback) => {
         data.postData.content = `${data.postData.content} <br> <div class="random-results"><div class="individual">Generating ${data.postData.randomNumber.amount} random number${data.postData.randomNumber.amount > 1 ? 's' : ''} from ${data.postData.randomNumber.min} to ${data.postData.randomNumber.max}:  [${data.postData.randomNumber.result}]</div> <div class="total">Total:${data.postData.randomNumber.total}</div></div>`;
     }
     if (data.postData.diceRoll) {
-        data.postData.content = `${data.postData.content} <br> <div class="dice-results"><div class="individual">Rolling ${data.postData.diceRoll.query} dice: [${data.postData.diceRoll.rolled}]</div> <div class="total">Total:${data.postData.diceRoll.result}</div></div>`;
+        data.postData.content = `${data.postData.content} <br> <div class="dice-results"><div class="individual">Rolling ${data.postData.diceRoll.query} dice: [${data.postData.diceRoll.rolled.toString().replace(/,/g, ', ')}]</div> <div class="total">Total:${data.postData.diceRoll.result}</div></div>`;
     }
     callback(null, data);
 };
@@ -42,7 +42,6 @@ var Numbers = {
     random: function (amount, min, max) {
         const numbers = [];
         const settings = {min: parseInt(min), max: parseInt(max), integer: true}
-        console.log(JSON.stringify(settings))
         for (var i = 0; i < amount; i++) {
             numbers.push(RandomNumber(settings))
         }
