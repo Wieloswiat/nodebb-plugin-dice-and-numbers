@@ -25,7 +25,7 @@ const parsePost = (data, callback) => {
 };
 module.exports.parsePost = parsePost;
 
-var posts = module.parent.require('./posts');
+const posts = require.main.require('./src/posts');
 
 const buildComposer = async (data, callback) => {
     var req = data.req;
