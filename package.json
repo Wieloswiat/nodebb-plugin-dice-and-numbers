@@ -1,9 +1,9 @@
 {
-  "name": "nodebb-plugin-dice-and-numbers",
-  "version": "0.2.1",
+  "name": "nodebb-plugin-ws-dice-and-numbers",
+  "version": "0.2.2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/am1cable/nodebb-plugin-dice-and-numbers.git"
+    "url": "https://github.com/Wieloswiat/nodebb-plugin-ws-dice-and-numbers.git"
   },
   "keywords": [
     "nodebb",
@@ -16,6 +16,7 @@
     "roll": "^1.2.0"
   },
   "nbbpm": {
-    "compatibility": "^1.10.x"
-  }
+    "compatibility": "^1.16.x"
+  },
+  "main": "library.js"
 }
